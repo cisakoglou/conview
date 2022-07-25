@@ -108,6 +108,7 @@ def b64_image(image_filename):
 #https://stackoverflow.com/questions/70050831/plotly-dash-scatter-plot-pointnumber-is-assigned-to-multiple-points-in-hover-da
 import base64
 app = JupyterDash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 fig = px.scatter(df_z2_slice, x="vine_scores", y="coef_values", color='group', color_discrete_sequence=['royalblue', 'darkkhaki'],
                  labels={'vine_scores':'Vineland-II Daily Living Scores', 'group':'Diagnostic Group',

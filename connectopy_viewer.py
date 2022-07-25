@@ -193,7 +193,7 @@ def update_img(hoverData):
     img_src = "input/figures/" + name + "_hariri_inverted_L_NO_GR1.png"
     children = [
         html.Div([
-            html.H2(f"{name}", style={"color": "black"}),
+            html.H2("Subject ID: " + f"{name}", style={"color": "black"}),
             html.Img(src=b64_image(img_src), style={"width": "100%",'background-color':'#cccccc'}),
         ], style={'width':'900px', 'white-space': 'normal'})
     ]

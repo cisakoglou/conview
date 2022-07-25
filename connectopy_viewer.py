@@ -26,8 +26,8 @@ JupyterDash.infer_jupyter_proxy_config()
 
 
 #load data
-df_z2 = pd.read_csv(r"input\df_z2.csv")
-df_z4 = pd.read_csv(r"input\df_z4.csv")
+df_z2 = pd.read_csv(r"input/df_z2.csv")
+df_z4 = pd.read_csv(r"input/df_z4.csv")
 
 
 # In[16]:
@@ -189,7 +189,7 @@ def update_img(hoverData):
     
     name = str(int(df_row['sbj_id']))
 
-    img_src = "input\\figures\\" + name + "_hariri_inverted_L_NO_GR1.png"
+    img_src = "input/figures/" + name + "_hariri_inverted_L_NO_GR1.png"
     children = [
         html.Div([
             html.H2(f"{name}", style={"color": "black"}),

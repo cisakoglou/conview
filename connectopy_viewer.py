@@ -214,8 +214,8 @@ def update_output(value):
                  custom_data=['age','sbj_id'])
     return fig
 
-
-app.run_server(debug=True, mode='inline')
+if __name__ == "__main__":
+    app.run_server(debug=True, mode='inline')
 
 
 # In[5]:

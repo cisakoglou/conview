@@ -4,7 +4,6 @@
 # In[9]:
 
 
-from jupyter_dash import JupyterDash
 import dash_bootstrap_components as dbc
 
 import dash
@@ -14,16 +13,6 @@ import pandas as pd
 import plotly.express as px
 from dash.dependencies import Input, Output
 import shutil
-
-
-# In[11]:
-
-
-JupyterDash.infer_jupyter_proxy_config()
-
-
-# In[15]:
-
 
 #load data
 df_z2 = pd.read_csv(r"input/df_z2.csv")
@@ -107,7 +96,7 @@ def b64_image(image_filename):
 
 #https://stackoverflow.com/questions/70050831/plotly-dash-scatter-plot-pointnumber-is-assigned-to-multiple-points-in-hover-da
 import base64
-app = JupyterDash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
 
 fig = px.scatter(df_z2_slice, x="vine_scores", y="coef_values", color='group', color_discrete_sequence=['royalblue', 'darkkhaki'],
@@ -224,7 +213,8 @@ def favicon():
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == "__main__":
-    app.run_server(debug=True, mode='inline')
+    # Heroku binds to $PORT; fall back to 8050 locally
+    app.run_server(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)), debug=False)
 
 
 # In[5]:
